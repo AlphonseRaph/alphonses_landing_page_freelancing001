@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Startup Data Foundation Guide</title>
     
-    <!-- MailerLite Universal -->
+    <!-- Functional Landing Page Code for Vercel Deployment -->
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
             background: #ffffff;
@@ -64,6 +64,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px 0; /* Added padding for smaller screens */
         }
 
         .mockup {
@@ -115,103 +116,114 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             margin-top: 40px;
         }
-
-        /* Override MailerLite styles to match our design */
-        #mlb2-33990797 {
-            width: 100% !important;
+        
+        /* Custom Form Styles */
+        .form-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: #0a0a0a;
+            text-align: center;
+            font-weight: 700;
         }
 
-        #mlb2-33990797 .ml-form-embedWrapper {
-            background: transparent !important;
-            border: none !important;
-            padding: 0 !important;
+        .form-field-row {
+            margin-bottom: 20px;
         }
 
-        #mlb2-33990797 .ml-form-embedBody {
-            padding: 0 !important;
+        .field-group label {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        #mlb2-33990797 .ml-form-embedContent h4 {
-            font-size: 1.5rem !important;
-            margin-bottom: 24px !important;
-            color: #0a0a0a !important;
-            text-align: center !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        #mlb2-33990797 .ml-form-embedContent p {
-            display: none !important;
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        #mlb2-33990797 .ml-form-fieldRow {
-            margin-bottom: 20px !important;
+        .form-submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        #mlb2-33990797 .ml-field-group label {
-            font-weight: 600 !important;
-            color: #2d3748 !important;
-            font-size: 0.95rem !important;
-            margin-bottom: 8px !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        .form-submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
-        #mlb2-33990797 input[type="text"],
-        #mlb2-33990797 input[type="email"] {
-            width: 100% !important;
-            padding: 16px !important;
-            border: 2px solid #e2e8f0 !important;
-            border-radius: 10px !important;
-            font-size: 1rem !important;
-            transition: all 0.3s ease !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        .form-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
-        #mlb2-33990797 input[type="text"]:focus,
-        #mlb2-33990797 input[type="email"]:focus {
-            outline: none !important;
-            border-color: #667eea !important;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        /* Loading Spinner */
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        #mlb2-33990797 .ml-form-embedSubmit {
-            margin: 0 !important;
+        /* Success/Error/Message Box */
+        .message-box {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
-        #mlb2-33990797 button[type="submit"] {
-            width: 100% !important;
-            padding: 18px 40px !important;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-            color: white !important;
-            border: none !important;
-            border-radius: 10px !important;
-            font-size: 1.1rem !important;
-            font-weight: 700 !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        .success-box {
+            background-color: #e6ffed;
+            color: #2f855a;
         }
 
-        #mlb2-33990797 button[type="submit"]:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4) !important;
+        .error-box {
+            background-color: #fff5f5;
+            color: #c53030;
+        }
+        
+        .message-box h4 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            font-weight: 800;
         }
 
-        #mlb2-33990797 .ml-form-successBody {
-            text-align: center !important;
-            padding: 40px 20px !important;
-        }
-
-        #mlb2-33990797 .ml-form-successContent h4 {
-            color: #0a0a0a !important;
-            font-size: 1.8rem !important;
-            margin-bottom: 16px !important;
-        }
-
-        #mlb2-33990797 .ml-form-successContent p {
-            display: block !important;
-            color: #4a5568 !important;
-            font-size: 1.1rem !important;
+        .message-box p {
+            font-size: 1.1rem;
+            color: inherit;
         }
 
         /* Benefits Section */
@@ -367,47 +379,39 @@
                     <p class="subheadline">A simple guide that helps founders stop guessing and start making confident, data-driven decisions.</p>
                     
                     <div class="form-section">
-                        <!-- MailerLite Form -->
-                        <div id="mlb2-33990797" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-33990797">
-                            <div class="ml-form-align-center">
-                                <div class="ml-form-embedWrapper embedForm">
-                                    <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                                        <div class="ml-form-embedContent">
-                                            <h4>Get Your Free Guide Now</h4>
-                                        </div>
-                                        <form class="ml-block-form" id="mailerliteForm" data-code="" method="post">
-                                            <div class="ml-form-formContent">
-                                                <div class="ml-form-fieldRow">
-                                                    <div class="ml-field-group ml-field-name">
-                                                        <label>Full Name</label>
-                                                        <input aria-label="name" type="text" class="form-control" id="ml-name" name="fields[name]" placeholder="Enter your name" autocomplete="given-name" required>
-                                                    </div>
-                                                </div>
-                                                <div class="ml-form-fieldRow ml-last-item">
-                                                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                                                        <label>Email Address</label>
-                                                        <input aria-label="email" aria-required="true" type="email" class="form-control" id="ml-email" name="fields[email]" placeholder="you@example.com" autocomplete="email" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" name="ml-submit" value="1">
-                                            <div class="ml-form-embedSubmit">
-                                                <button type="submit" class="primary" id="mlSubmitBtn">Download Your Free Guide</button>
-                                                <button disabled="disabled" style="display: none;" type="button" class="loading">
-                                                    <div class="ml-form-embedSubmitLoad"></div>
-                                                    <span class="sr-only">Loading...</span>
-                                                </button>
-                                            </div>
-                                            <input type="hidden" name="anticsrf" value="true">
-                                        </form>
-                                    </div>
-                                    <div class="ml-form-successBody row-success" style="display: none">
-                                        <div class="ml-form-successContent">
-                                            <h4>🎉 Success!</h4>
-                                            <p>Check your email for your Startup Data Foundation Guide and exclusive resources!</p>
+                        <!-- Subscription Form -->
+                        <div id="subscription-container">
+                            <div class="form-content" id="form-content">
+                                <h4>Get Your Free Guide Now</h4>
+                                <form id="subscribe-form">
+                                    <div class="form-field-row">
+                                        <div class="field-group">
+                                            <label for="name">Full Name</label>
+                                            <input aria-label="name" type="text" class="form-control" id="name" name="name" placeholder="Enter your name" autocomplete="given-name" required>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="form-field-row">
+                                        <div class="field-group">
+                                            <label for="email">Email Address</label>
+                                            <input aria-label="email" aria-required="true" type="email" class="form-control" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-submit">
+                                        <button type="submit" class="form-submit-btn" id="submit-btn">
+                                            Download Your Free Guide
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Message Box for Success/Error -->
+                            <div id="success-message" class="message-box success-box">
+                                <h4>🎉 Success!</h4>
+                                <p>Check your email for your Startup Data Foundation Guide and exclusive resources!</p>
+                            </div>
+                            <div id="error-message" class="message-box error-box">
+                                <h4>⚠️ Submission Failed</h4>
+                                <p>An unexpected error occurred. Please try again or contact support.</p>
                             </div>
                         </div>
                     </div>
@@ -500,46 +504,108 @@
     </footer>
 
     <script>
-        console.log('🚀 Simple form handler loaded');
-        
-        window.addEventListener('load', function() {
-            const form = document.getElementById('mailerliteForm');
-            const submitBtn = document.getElementById('mlSubmitBtn');
-            
-            if (form && submitBtn) {
-                console.log('✅ Form elements found');
-                
-                submitBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    const name = document.getElementById('ml-name').value.trim();
-                    const email = document.getElementById('ml-email').value.trim();
-                    
-                    if (!name || !email) {
-                        alert('Please enter both your name and email address.');
-                        return;
-                    }
-                    
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(email)) {
-                        alert('Please enter a valid email address.');
-                        return;
-                    }
-                    
-                    // Show the collected data
-                    console.log('📝 Form Data Collected:');
-                    console.log('Name:', name);
-                    console.log('Email:', email);
-                    
-                    // Hide form, show success
-                    document.querySelector('.row-form').style.display = 'none';
-                    document.querySelector('.ml-form-successBody').style.display = 'block';
-                    
-                    // Show alert with instructions
-                    alert(`✅ Data Collected!\n\nName: ${name}\nEmail: ${email}\n\n📋 NEXT STEPS:\n\n1. Go to MailerLite.com\n2. Go to Subscribers → Groups\n3. Click "Startup Data Guide Subscriber"\n4. Click "Add Subscriber"\n5. Enter this name and email\n6. Your workflow will send the email automatically!\n\nOR download this page and host it on your own website where MailerLite integration will work properly.`);
-                });
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('subscribe-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const formContent = document.getElementById('form-content');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            const emailInput = document.getElementById('email');
+
+            // --- Utility Functions ---
+
+            // Simple validation function (client-side only)
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
             }
+
+            // Show an internal message box (instead of alert)
+            function showMessage(type, message) {
+                // First, hide all
+                formContent.style.display = 'none';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                if (type === 'success') {
+                    successMessage.style.display = 'block';
+                } else if (type === 'error') {
+                    errorMessage.querySelector('p').textContent = message;
+                    errorMessage.style.display = 'block';
+                } else {
+                    // Default to show form again
+                    formContent.style.display = 'block';
+                }
+            }
+
+            // Set button state (loading/default)
+            function setButtonLoading(isLoading) {
+                if (isLoading) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<div class="loading-spinner"></div> Processing...';
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Download Your Free Guide';
+                }
+            }
+
+
+            // --- Form Submission Handler ---
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                showMessage('form'); // Ensure form is visible before submission attempt
+
+                const name = document.getElementById('name').value.trim();
+                const email = emailInput.value.trim();
+
+                // 1. Client-Side Validation
+                if (!name || !email) {
+                    showMessage('error', 'Please ensure you enter both your name and email address.');
+                    return;
+                }
+                if (!isValidEmail(email)) {
+                    showMessage('error', 'Please enter a valid email address.');
+                    // Simple focus/styling to indicate error
+                    emailInput.style.borderColor = '#c53030';
+                    emailInput.focus();
+                    setTimeout(() => emailInput.style.borderColor = '#e2e8f0', 3000);
+                    return;
+                }
+
+                setButtonLoading(true);
+
+                // 2. Serverless API Endpoint Call (Vercel)
+                try {
+                    // IMPORTANT: Replace '/api/subscribe' with your actual Vercel Serverless Function endpoint
+                    // The function must be deployed in your Vercel project to handle this POST request.
+                    const response = await fetch('/api/subscribe', { 
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name, email, referrer: window.location.href })
+                    });
+
+                    if (response.ok) {
+                        // Successful subscription
+                        showMessage('success');
+                        // Optionally clear the form
+                        form.reset(); 
+                    } else {
+                        // Server returned an error (e.g., email already subscribed, bad request)
+                        const errorData = await response.json();
+                        const message = errorData.message || 'Error processing subscription. Please check your details.';
+                        showMessage('error', message);
+                    }
+
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    showMessage('error', 'Network error or unable to reach the server. Please check your connection.');
+                } finally {
+                    setButtonLoading(false);
+                }
+            });
         });
     </script>
 </body>
