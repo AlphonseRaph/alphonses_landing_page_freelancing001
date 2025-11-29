@@ -1,0 +1,10 @@
+{
+  "name": "startup-data-landing-page",
+  "version": "1.0.0",
+  "description": "Functional landing page with Vercel serverless function for subscription.",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "echo 'This is a static site with an API endpoint. Deploy directly to Vercel.'"
+  }
+}
