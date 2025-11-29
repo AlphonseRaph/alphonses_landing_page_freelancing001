@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Startup Data Foundation Guide</title>
+    
+    <!-- MailerLite Universal -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #0a0a0a;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text .subheadline {
+            font-size: 1.4rem;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        /* 3D Mockup */
+        .mockup-container {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mockup {
+            width: 100%;
+            max-width: 450px;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+            transform: rotateY(-15deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+        }
+
+        .mockup:hover {
+            transform: rotateY(-10deg) rotateX(2deg) translateY(-10px);
+        }
+
+        .mockup-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .mockup-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+        }
+
+        /* Override MailerLite styles to match our design */
+        #mlb2-33990797 {
+            width: 100% !important;
+        }
+
+        #mlb2-33990797 .ml-form-embedWrapper {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        #mlb2-33990797 .ml-form-embedBody {
+            padding: 0 !important;
+        }
+
+        #mlb2-33990797 .ml-form-embedContent h4 {
+            font-size: 1.5rem !important;
+            margin-bottom: 24px !important;
+            color: #0a0a0a !important;
+            text-align: center !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        }
+
+        #mlb2-33990797 .ml-form-embedContent p {
+            display: none !important;
+        }
+
+        #mlb2-33990797 .ml-form-fieldRow {
+            margin-bottom: 20px !important;
+        }
+
+        #mlb2-33990797 .ml-field-group label {
+            font-weight: 600 !important;
+            color: #2d3748 !important;
+            font-size: 0.95rem !important;
+            margin-bottom: 8px !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        }
+
+        #mlb2-33990797 input[type="text"],
+        #mlb2-33990797 input[type="email"] {
+            width: 100% !important;
+            padding: 16px !important;
+            border: 2px solid #e2e8f0 !important;
+            border-radius: 10px !important;
+            font-size: 1rem !important;
+            transition: all 0.3s ease !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        }
+
+        #mlb2-33990797 input[type="text"]:focus,
+        #mlb2-33990797 input[type="email"]:focus {
+            outline: none !important;
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        #mlb2-33990797 .ml-form-embedSubmit {
+            margin: 0 !important;
+        }
+
+        #mlb2-33990797 button[type="submit"] {
+            width: 100% !important;
+            padding: 18px 40px !important;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 10px !important;
+            font-size: 1.1rem !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto' !important;
+        }
+
+        #mlb2-33990797 button[type="submit"]:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4) !important;
+        }
+
+        #mlb2-33990797 .ml-form-successBody {
+            text-align: center !important;
+            padding: 40px 20px !important;
+        }
+
+        #mlb2-33990797 .ml-form-successContent h4 {
+            color: #0a0a0a !important;
+            font-size: 1.8rem !important;
+            margin-bottom: 16px !important;
+        }
+
+        #mlb2-33990797 .ml-form-successContent p {
+            display: block !important;
+            color: #4a5568 !important;
+            font-size: 1.1rem !important;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .benefits h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #0a0a0a;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #0a0a0a;
+        }
+
+        .benefit-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: white;
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            color: #a0aec0;
+            font-size: 1rem;
+        }
+
+        .contact-item strong {
+            color: white;
+            margin-right: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .subheadline {
+                font-size: 1.2rem;
+            }
+
+            .mockup {
+                transform: rotateY(0) rotateX(0);
+                max-width: 100%;
+            }
+
+            .benefits h2 {
+                font-size: 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .subheadline {
+                font-size: 1.1rem;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .mockup {
+                height: 500px;
+                padding: 40px 30px;
+            }
+
+            .mockup-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Build a Smarter Startup With Organized, Insight-Ready Data Systems.</h1>
+                    <p class="subheadline">A simple guide that helps founders stop guessing and start making confident, data-driven decisions.</p>
+                    
+                    <div class="form-section">
+                        <!-- MailerLite Form -->
+                        <div id="mlb2-33990797" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-33990797">
+                            <div class="ml-form-align-center">
+                                <div class="ml-form-embedWrapper embedForm">
+                                    <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                                        <div class="ml-form-embedContent">
+                                            <h4>Get Your Free Guide Now</h4>
+                                        </div>
+                                        <form class="ml-block-form" id="mailerliteForm" data-code="" method="post">
+                                            <div class="ml-form-formContent">
+                                                <div class="ml-form-fieldRow">
+                                                    <div class="ml-field-group ml-field-name">
+                                                        <label>Full Name</label>
+                                                        <input aria-label="name" type="text" class="form-control" id="ml-name" name="fields[name]" placeholder="Enter your name" autocomplete="given-name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="ml-form-fieldRow ml-last-item">
+                                                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                                        <label>Email Address</label>
+                                                        <input aria-label="email" aria-required="true" type="email" class="form-control" id="ml-email" name="fields[email]" placeholder="you@example.com" autocomplete="email" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="ml-submit" value="1">
+                                            <div class="ml-form-embedSubmit">
+                                                <button type="submit" class="primary" id="mlSubmitBtn">Download Your Free Guide</button>
+                                                <button disabled="disabled" style="display: none;" type="button" class="loading">
+                                                    <div class="ml-form-embedSubmitLoad"></div>
+                                                    <span class="sr-only">Loading...</span>
+                                                </button>
+                                            </div>
+                                            <input type="hidden" name="anticsrf" value="true">
+                                        </form>
+                                    </div>
+                                    <div class="ml-form-successBody row-success" style="display: none">
+                                        <div class="ml-form-successContent">
+                                            <h4>🎉 Success!</h4>
+                                            <p>Check your email for your Startup Data Foundation Guide and exclusive resources!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mockup-container">
+                    <div class="mockup">
+                        <div class="mockup-title">The Startup Data Foundation Guide</div>
+                        <div class="mockup-badge">FREE RESOURCE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>What You'll Learn Inside</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Ensure Data Accuracy</h3>
+                    <p>How organized data ensures accuracy and eliminates scattered spreadsheets.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">👁️</div>
+                    <h3>Gain Clear Visibility</h3>
+                    <p>How to gain clear visibility into business performance and key metrics.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Boost Efficiency</h3>
+                    <p>Ways to boost operational efficiency and eliminate wasted time.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Understand Customers</h3>
+                    <p>How structured data provides deeper customer understanding.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Support Scalability</h3>
+                    <p>Why organized data supports scalability and smooth growth.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Strengthen Team Alignment</h3>
+                    <p>How consistent metrics strengthen team alignment and execution.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💼</div>
+                    <h3>Increase Investor Confidence</h3>
+                    <p>How clean data increases investor confidence and trust.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤖</div>
+                    <h3>Enable AI Readiness</h3>
+                    <p>Why organized data enables automation, analytics, and AI readiness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Get In Touch</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Name:</strong> Alphonse Oketch
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email:</strong> alphonseoketch2004@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone:</strong> +254 796 444 037
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        console.log('🚀 Simple form handler loaded');
+        
+        window.addEventListener('load', function() {
+            const form = document.getElementById('mailerliteForm');
+            const submitBtn = document.getElementById('mlSubmitBtn');
+            
+            if (form && submitBtn) {
+                console.log('✅ Form elements found');
+                
+                submitBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const name = document.getElementById('ml-name').value.trim();
+                    const email = document.getElementById('ml-email').value.trim();
+                    
+                    if (!name || !email) {
+                        alert('Please enter both your name and email address.');
+                        return;
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    // Show the collected data
+                    console.log('📝 Form Data Collected:');
+                    console.log('Name:', name);
+                    console.log('Email:', email);
+                    
+                    // Hide form, show success
+                    document.querySelector('.row-form').style.display = 'none';
+                    document.querySelector('.ml-form-successBody').style.display = 'block';
+                    
+                    // Show alert with instructions
+                    alert(`✅ Data Collected!\n\nName: ${name}\nEmail: ${email}\n\n📋 NEXT STEPS:\n\n1. Go to MailerLite.com\n2. Go to Subscribers → Groups\n3. Click "Startup Data Guide Subscriber"\n4. Click "Add Subscriber"\n5. Enter this name and email\n6. Your workflow will send the email automatically!\n\nOR download this page and host it on your own website where MailerLite integration will work properly.`);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
